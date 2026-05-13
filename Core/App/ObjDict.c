@@ -21,8 +21,6 @@
 /**************************************************************************/
 
 UNS8 clockRate = 0x0;				/* Mapped at index 0x2000, subindex 0x00 */
-UNS8 Control_ScriptStatus = 0x0;	/* Mapped at index 0x2001, subindex 0x01 */
-UNS8 Control_CurrentGroup = 0x0;	/* Mapped at index 0x2001, subindex 0x02 */
 UNS8 X_Network = 0x0;				/* Mapped at index 0x2002, subindex 0x00 */
 UNS16 Temperature = 0x0;			/* Mapped at index 0x2003, subindex 0x00 */
 UNS8 TemperatureIMU[2] =
@@ -316,15 +314,6 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
                        { RW, uint8, sizeof (UNS8), (void*)&clockRate }
                      };
 
-/* index 0x2001 :   Mapped variable Control */
-                    UNS8 ObjDict_highestSubIndex_obj2001 = 2; /* number of subindex - 1*/
-                    const subindex ObjDict_Index2001[] =
-                     {
-                       { RO, uint8, sizeof (UNS8), (void*)&ObjDict_highestSubIndex_obj2001 },
-                       { RW, uint8, sizeof (UNS8), (void*)&Control_ScriptStatus },
-                       { RW, uint8, sizeof (UNS8), (void*)&Control_CurrentGroup },
-                     };
-
 /* index 0x2002 :   Mapped variable X-Network */
                     UNS8 ObjDict_highestSubIndex_obj2002 = 1; /* number of subindex - 1*/
                     const subindex ObjDict_Index2002[] =
@@ -419,7 +408,6 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 														  0x1600, /*RPDO Mapping(32)*/ \
 														  0x1800, /*TPDO Params(10)*/ \
 														  0x1A00, /*TPDO Mapping(32)*/ \
-														  0x2001, /*Control(4)*/\
 														  0x2012, /*Accelerometer Settings*/};
 
                     const subindex ObjDict_Index2900[] =
@@ -458,7 +446,6 @@ const indextable ObjDict_objdict[] =
   { (subindex*)ObjDict_Index1800,sizeof(ObjDict_Index1800)/sizeof(ObjDict_Index1800[0]), 0x1800},
   { (subindex*)ObjDict_Index1A00,sizeof(ObjDict_Index1A00)/sizeof(ObjDict_Index1A00[0]), 0x1A00},
   { (subindex*)ObjDict_Index2000,sizeof(ObjDict_Index2000)/sizeof(ObjDict_Index2000[0]), 0x2000},
-  { (subindex*)ObjDict_Index2001,sizeof(ObjDict_Index2001)/sizeof(ObjDict_Index2001[0]), 0x2001},
   { (subindex*)ObjDict_Index2002,sizeof(ObjDict_Index2002)/sizeof(ObjDict_Index2002[0]), 0x2002},
   { (subindex*)ObjDict_Index2003,sizeof(ObjDict_Index2003)/sizeof(ObjDict_Index2003[0]), 0x2003},
   { (subindex*)ObjDict_Index2010,sizeof(ObjDict_Index2010)/sizeof(ObjDict_Index2010[0]), 0x2010},
@@ -487,16 +474,15 @@ const indextable * ObjDict_scanIndexOD (UNS16 wIndex, UNS32 * errorCode, ODCallb
 		case 0x1800: i = 9;*callbacks = ObjDict_Index1800_callbacks; break;
 		case 0x1A00: i = 10;break;
 		case 0x2000: i = 11;break;
-		case 0x2001: i = 12;break;
-		case 0x2002: i = 13;break;
-		case 0x2003: i = 14;break;
-		case 0x2010: i = 15;break;
-		case 0x2011: i = 16;break;
-        case 0x2012: i = 17;break;
-        case 0x2020: i = 18;break;
-        case 0x2500: i = 19;break;
-        case 0x2900: i = 20;break;
-        case 0x3000: i = 21;break;
+		case 0x2002: i = 12;break;
+		case 0x2003: i = 13;break;
+		case 0x2010: i = 14;break;
+		case 0x2011: i = 15;break;
+        case 0x2012: i = 16;break;
+        case 0x2020: i = 17;break;
+        case 0x2500: i = 18;break;
+        case 0x2900: i = 19;break;
+        case 0x3000: i = 20;break;
 		default:
 			*errorCode = OD_NO_SUCH_OBJECT;
 			return NULL;

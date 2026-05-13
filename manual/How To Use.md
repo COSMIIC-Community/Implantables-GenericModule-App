@@ -91,9 +91,9 @@ The different sections of flash are shown below
 | Purpose       | Module bootloader (first entry point) | Application space (leftover space from allocation of other sections) | Space for emulated EEPROM | Parameter space (Node number, app checksum, stim limits, etc.) |  
 
 > [!NOTE]
-> The (two byte) serial numnber, and module type identifier are located in the last three bytes of the bootloader space. e.g, S/N 1234 with module type 3 would be ```[0x04, 0xD2, 0x03]``` at addresses ```0x4FFD``` ```0x4FFE``` and ```0x4FFF``` respectively.
+> The (two byte) serial number, and module type identifier are located in the last three bytes of the bootloader space. e.g, S/N 1234 with module type 3 would be ```[0x04, 0xD2, 0x03]``` at addresses ```0x4FFD``` ```0x4FFE``` and ```0x4FFF``` respectively.
 > 
-> The first 6 bytes of the parameter space ```[0x3F800 - 0x3F805]```are used for the: 
+> The first 6 bytes of the parameter space ```[0x3F800 - 0x3F805]``` are used for the: 
 > - Node Number - 1 byte
 > - App Checksum - 1 byte
 > - App Size - 3 bytes

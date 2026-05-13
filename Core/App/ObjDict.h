@@ -21,7 +21,7 @@
 #include "data.h"
 
 #define APP_REV 0
-#define RESTORE_COUNT 6
+#define RESTORE_COUNT 5
 
 /* Prototypes of function provided by object dictionnary */
 /* Master node data struct */
@@ -33,8 +33,6 @@ extern UNS8 ObjDict_obj1018_Product_Code;
 extern UNS32 ObjDict_obj1018_Revision_Number;
 
 extern UNS8 clockRate;					/* Mapped at index 0x2000, subindex 0x00*/
-extern UNS8 Control_ScriptStatus;		/* Mapped at index 0x2001, subindex 0x01 */
-extern UNS8 Control_CurrentGroup;		/* Mapped at index 0x2001, subindex 0x02 */
 extern UNS8 X_Network;					/* Mapped at index 0x2002, subindex 0x00*/
 extern UNS16 Temperature;				/* Mapped at index 0x2003, subindex 0x00*/
 extern UNS8 TemperatureIMU[2];
