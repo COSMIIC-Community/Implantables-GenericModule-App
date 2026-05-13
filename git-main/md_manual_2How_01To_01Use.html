@@ -307,9 +307,9 @@ Full Memory Layout</h3>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyCenter">Purpose   </td><td class="markdownTableBodyCenter">Module bootloader (first entry point)   </td><td class="markdownTableBodyCenter">Application space (leftover space from allocation of other sections)   </td><td class="markdownTableBodyCenter">Space for emulated EEPROM   </td><td class="markdownTableBodyCenter">Parameter space (Node number, app checksum, stim limits, etc.)   </td></tr>
 </table>
-<dl class="section note"><dt>Note</dt><dd>The (two byte) serial numnber, and module type identifier are located in the last three bytes of the bootloader space. e.g, S/N 1234 with module type 3 would be <code>[0x04, 0xD2, 0x03]</code> at addresses <code>0x4FFD</code> <code>0x4FFE</code> and <code>0x4FFF</code> respectively. <br  />
+<dl class="section note"><dt>Note</dt><dd>The (two byte) serial number, and module type identifier are located in the last three bytes of the bootloader space. e.g, S/N 1234 with module type 3 would be <code>[0x04, 0xD2, 0x03]</code> at addresses <code>0x4FFD</code> <code>0x4FFE</code> and <code>0x4FFF</code> respectively. <br  />
 <br  />
- The first 6 bytes of the parameter space <code>[0x3F800 - 0x3F805]</code>are used for the:<ul>
+ The first 6 bytes of the parameter space <code>[0x3F800 - 0x3F805]</code> are used for the:<ul>
 <li>Node Number - 1 byte</li>
 <li>App Checksum - 1 byte</li>
 <li>App Size - 3 bytes</li>
